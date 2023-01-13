@@ -6,14 +6,14 @@ namespace MatrixLibrary
 {
     public class Matrix
     {
-        public static int[,] GenerateMatrix (int rowCount, int colCount)
+        public static int[,] GenerateMatrix(int rowCount, int colCount)
         {
             int[,] matrix = new int[rowCount, colCount];
             Random random = new Random();
             for (int i = 0; i < rowCount; i++)
                 for (int j = 0; j < colCount; j++)
                 {
-                    matrix[i,j] = random.Next(-9,10);
+                    matrix[i, j] = random.Next(-9, 10);
                 }
             return matrix;
         }
@@ -23,7 +23,7 @@ namespace MatrixLibrary
             {
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    Console.Write($"{ matrix[i, j],3}");
+                    Console.Write($"{matrix[i, j],3}");
                 }
                 Console.WriteLine();
             }
@@ -54,7 +54,7 @@ namespace MatrixLibrary
                 }
             Array.Sort(mas);
             Array.Reverse(mas);
-            for (int i = 0; i < (mas.Length)-1; i++)
+            for (int i = 0; i < (mas.Length) - 1; i++)
             {
                 if (mas[i] == mas[i + 1])
                 {
@@ -71,12 +71,12 @@ namespace MatrixLibrary
         {
             bool n = true;
             int res = 0;
-            for(int i=0; i<matrix.GetLength(0);i++)
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 n = true;
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
-                    if (matrix[i,j] == 0)
+                    if (matrix[i, j] == 0)
                     {
                         n = false;
                         break;
@@ -107,8 +107,8 @@ namespace MatrixLibrary
         }
         public static string RowIndexLongestSeriesOfIdenticalElement(int[,] matrix)
         {
-            int count = 1, resCount=1;
-            int rowIndexLongestSeries=-1;
+            int count = 1, resCount = 1;
+            int rowIndexLongestSeries = -1;
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
                 for (int j = 0; j < matrix.GetLength(1) - 1; j++)
@@ -129,7 +129,7 @@ namespace MatrixLibrary
             if (rowIndexLongestSeries >= 0) return $"Номер рядка, в якому знаходиться найдовша серія однакових елементів = {rowIndexLongestSeries}";
             else return "Не існує рядка з серією елементів";
         }
-        public static int ProductElementsNotHaveNegativeElements(int[,] matrix)
+        public static string ProductElementsNotHaveNegativeElements(int[,] matrix)
         {
             int prod = 1;
             bool n = true;
@@ -148,7 +148,43 @@ namespace MatrixLibrary
                 }
                 if (n) prod *= tempProd;
             }
-            return prod;
+            if (prod == 1) return "В кожному рядку матриці присутній від'ємний елемент, спробуйте згенерувати іншу матрицю\n";
+            else return $"Добуток елементів в тих рядках, які не містять від’ємних елементів = {prod}\n";
+        }
+        public static int MaxSumDiagonal(int[,] matrix)
+        {
+            int sum = 0, max = int.MinValue;
+            for (int j = 1; j < matrix.GetLength(1); j++)
+            {
+                int a = j;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    sum += matrix[i, j];
+                    j++;
+                    if (j == matrix.GetLength(1)) break;
+                }
+                j = a;
+                if (max < sum) max = sum;
+                sum = 0;
+            }
+
+
+            for (int i = 1; i < matrix.GetLength(0); i++)
+            {
+                int a = i;
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    sum += matrix[i, j];
+                    i++;
+                    if (i == matrix.GetLength(0)) break;
+                }
+                i = a;
+                if (max < sum) max = sum;
+                sum = 0;
+            }
+
+
+            return max;
         }
     }
 }
