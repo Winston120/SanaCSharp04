@@ -14,3 +14,5 @@ Matrix.DisplayMatrix(matrix);
 Console.WriteLine($"Кількість додатніх елементів = {Matrix.CountPositiveElements(matrix)}");
 string maxElementOfRepeat = Matrix.MaxElementOfRepeat(matrix);
 Console.WriteLine(maxElementOfRepeat);
+int countRowNotContainZeroElement = Matrix.CountRowNotСontainZeroElement(matrix);
+Console.WriteLine($"Кількість рядків що не містять жодного нульового елемента = {countRowNotContainZeroElement}");

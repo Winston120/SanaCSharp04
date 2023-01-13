@@ -45,7 +45,7 @@ namespace MatrixLibrary
         {
             int res = int.MinValue, count = 0;
             bool n = false;
-            int[] mas = new int[matrix.GetLength(0) * matrix.GetLength(0)];
+            int[] mas = new int[matrix.GetLength(0) * matrix.GetLength(1)];
             for (int i = 0; i < matrix.GetLength(0); i++)
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
@@ -63,8 +63,28 @@ namespace MatrixLibrary
                     break;
                 }
             }
-            if (n == true) return $"Максимальне число, що повторюється в масиві - {res}";
+            if (n == true) return $"Максимальне число, що повторюється в масиві = {res}";
             else return "В матриці немає максимального числа, що повторюється більше 2 разів";
+        }
+
+        public static int CountRowNotСontainZeroElement(int[,] matrix)
+        {
+            bool n = true;
+            int res = 0;
+            for(int i=0; i<matrix.GetLength(0);i++)
+            {
+                n = true;
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[i,j] == 0)
+                    {
+                        n = false;
+                        break;
+                    }
+                }
+                if (n) res++;
+            }
+            return res;
         }
     }
 }
