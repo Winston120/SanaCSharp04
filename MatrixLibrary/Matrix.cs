@@ -129,5 +129,26 @@ namespace MatrixLibrary
             if (rowIndexLongestSeries >= 0) return $"Номер рядка, в якому знаходиться найдовша серія однакових елементів = {rowIndexLongestSeries}";
             else return "Не існує рядка з серією елементів";
         }
+        public static int ProductElementsNotHaveNegativeElements(int[,] matrix)
+        {
+            int prod = 1;
+            bool n = true;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                n = true;
+                int tempProd = 1;
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    tempProd *= matrix[i, j];
+                    if (matrix[i, j] < 0)
+                    {
+                        n = false;
+                        break;
+                    }
+                }
+                if (n) prod *= tempProd;
+            }
+            return prod;
+        }
     }
 }

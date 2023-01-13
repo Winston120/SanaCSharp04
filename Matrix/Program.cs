@@ -19,4 +19,6 @@ Console.WriteLine($"Кількість рядків, що не містять ж
 int countColumnHaveZeroElement = Matrix.CountColumnHaveZeroElement(matrix);
 Console.WriteLine($"Кількість стовпців, що містять хоча б один нульовий елемент = {countColumnHaveZeroElement}");
 string rowIndexLongestSeriesOfIdenticalElement = Matrix.RowIndexLongestSeriesOfIdenticalElement(matrix);
-Console.Write($"{rowIndexLongestSeriesOfIdenticalElement}");
+Console.WriteLine($"{rowIndexLongestSeriesOfIdenticalElement}");
+int productElementsNotHaveNegativeElements = Matrix.ProductElementsNotHaveNegativeElements(matrix);
+Console.WriteLine($"Добуток елементів в тих рядках, які не містять від’ємних елементів = {productElementsNotHaveNegativeElements}");
