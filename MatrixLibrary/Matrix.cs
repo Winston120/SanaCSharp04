@@ -86,5 +86,24 @@ namespace MatrixLibrary
             }
             return res;
         }
+        public static int CountColumnHaveZeroElement(int[,] matrix)
+        {
+            bool n = false;
+            int res = 0;
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                n = false;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    if (matrix[i, j] == 0)
+                    {
+                        n = true;
+                        break;
+                    }
+                }
+                if (n) res++;
+            }
+            return res;
+        }
     }
 }
