@@ -13,7 +13,7 @@ namespace MatrixLibrary
             for (int i = 0; i < rowCount; i++)
                 for (int j = 0; j < colCount; j++)
                 {
-                    matrix[i,j] = random.Next(-9,9);
+                    matrix[i,j] = random.Next(-9,10);
                 }
             return matrix;
         }
@@ -104,6 +104,30 @@ namespace MatrixLibrary
                 if (n) res++;
             }
             return res;
+        }
+        public static string RowIndexLongestSeriesOfIdenticalElement(int[,] matrix)
+        {
+            int count = 1, resCount=1;
+            int rowIndexLongestSeries=-1;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1) - 1; j++)
+                {
+                    if (matrix[i, j] == matrix[i, j + 1])
+                    {
+                        count++;
+                        if (count > resCount)
+                        {
+                            resCount = count;
+                            rowIndexLongestSeries = i;
+                        }
+                    }
+                    else count = 1;
+                }
+                count = 1;
+            }
+            if (rowIndexLongestSeries >= 0) return $"Номер рядка, в якому знаходиться найдовша серія однакових елементів = {rowIndexLongestSeries}";
+            else return "Не існує рядка з серією елементів";
         }
     }
 }

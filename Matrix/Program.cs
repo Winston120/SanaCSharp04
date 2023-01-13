@@ -3,7 +3,7 @@ using System.Text;
 
 Console.InputEncoding = Encoding.UTF8;
 Console.OutputEncoding = Encoding.UTF8;
-
+Console.ForegroundColor= ConsoleColor.White;
 int n, m;
 Console.Write("Кількість рядків = ");
 n = int.Parse(Console.ReadLine());
@@ -18,3 +18,5 @@ int countRowNotContainZeroElement = Matrix.CountRowNotСontainZeroElement(matrix
 Console.WriteLine($"Кількість рядків, що не містять жодного нульового елемента = {countRowNotContainZeroElement}");
 int countColumnHaveZeroElement = Matrix.CountColumnHaveZeroElement(matrix);
 Console.WriteLine($"Кількість стовпців, що містять хоча б один нульовий елемент = {countColumnHaveZeroElement}");
+string rowIndexLongestSeriesOfIdenticalElement = Matrix.RowIndexLongestSeriesOfIdenticalElement(matrix);
+Console.Write($"{rowIndexLongestSeriesOfIdenticalElement}");
