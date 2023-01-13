@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Xml.Linq;
 
 namespace MatrixLibrary
 {
@@ -26,6 +27,44 @@ namespace MatrixLibrary
                 }
                 Console.WriteLine();
             }
+        }
+        public static int CountPositiveElements(int[,] matrix)
+        {
+            int res = 0;
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    if (matrix[i, j] > 0) res++;
+                }
+            }
+            return res;
+        }
+
+        public static string MaxElementOfRepeat(int[,] matrix)
+        {
+            int res = int.MinValue, count = 0;
+            bool n = false;
+            int[] mas = new int[matrix.GetLength(0) * matrix.GetLength(0)];
+            for (int i = 0; i < matrix.GetLength(0); i++)
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    mas[count] = matrix[i, j];
+                    count++;
+                }
+            Array.Sort(mas);
+            Array.Reverse(mas);
+            for (int i = 0; i < (mas.Length)-1; i++)
+            {
+                if (mas[i] == mas[i + 1])
+                {
+                    res = mas[i];
+                    n = true;
+                    break;
+                }
+            }
+            if (n == true) return $"Максимальне число, що повторюється в масиві - {res}";
+            else return "В матриці немає максимального числа, що повторюється більше 2 разів";
         }
     }
 }
