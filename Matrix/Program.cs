@@ -26,3 +26,5 @@ int maxSumDiagonal = Matrix.MaxSumDiagonal(matrix);
 Console.WriteLine($"Максимум серед сум елементів діагоналей, паралеsльних головній діагоналі матриці = {maxSumDiagonal}\n");
 string sumColElementsNotHaveNegativeElements = Matrix.SumColElementsNotHaveNegativeElements(matrix);
 Console.WriteLine(sumColElementsNotHaveNegativeElements);
+int minAbsSumDiagonal = Matrix.MinAbsSumDiagonal(matrix);
+Console.WriteLine($"\nМінімум серед сум модулів елементів діагоналей, паралельних побічній діагоналі матриці = {minAbsSumDiagonal}\n");

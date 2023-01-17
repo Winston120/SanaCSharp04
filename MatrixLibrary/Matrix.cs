@@ -206,6 +206,42 @@ namespace MatrixLibrary
         }
 
 
+        public static int MinAbsSumDiagonal(int[,] mas)
+        {
+            int sum = 0, min = int.MaxValue;
+            for (int j = 1; j < mas.GetLength(1); j++)
+            {
+                int a = j;
+                for (int i = 0; i < mas.GetLength(0); i++)
+                {
+                    sum += mas[i, j];
+                    j++;
+                    if (j == mas.GetLength(1)) break;
+                }
+                j = a;
+                if (min > Math.Abs(sum)) min = Math.Abs(sum);
+                sum = 0;
+            }
+
+
+            for (int i = 1; i < mas.GetLength(0); i++)
+            {
+                int a = i;
+                for (int j = 0; j < mas.GetLength(1); j++)
+                {
+                    sum += mas[i, j];
+                    i++;
+                    if (i == mas.GetLength(0)) break;
+                }
+                i = a;
+                if (min > Math.Abs(sum)) min = Math.Abs(sum);
+                sum = 0;
+            }
+
+
+            return min;
+        }
+
 
 
     }
