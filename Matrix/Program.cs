@@ -23,4 +23,6 @@ Console.WriteLine($"{rowIndexLongestSeriesOfIdenticalElement}\n");
 string productElementsNotHaveNegativeElements = Matrix.ProductElementsNotHaveNegativeElements(matrix);
 Console.WriteLine(productElementsNotHaveNegativeElements);
 int maxSumDiagonal = Matrix.MaxSumDiagonal(matrix);
-Console.WriteLine($"максимум серед сум елементів діагоналей, паралеsльних головній діагоналі матриці = {maxSumDiagonal}\n");
+Console.WriteLine($"Максимум серед сум елементів діагоналей, паралеsльних головній діагоналі матриці = {maxSumDiagonal}\n");
+string sumColElementsNotHaveNegativeElements = Matrix.SumColElementsNotHaveNegativeElements(matrix);
+Console.WriteLine(sumColElementsNotHaveNegativeElements);
