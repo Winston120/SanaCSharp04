@@ -237,9 +237,30 @@ namespace MatrixLibrary
                 if (min > Math.Abs(sum)) min = Math.Abs(sum);
                 sum = 0;
             }
-
-
             return min;
+        }
+        public static string SumColElementsHaveNegativeElements(int[,] matrix)
+        {
+            int colSum = 0, suma = 0;
+            bool n = false, temp = false;
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                suma = 0;
+                n = false;
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                {
+                    if (matrix[i, j] < 0)
+                    {
+                        n = true;
+                        temp = true;
+                            }
+                    suma += matrix[i, j];
+                }
+                if(n) colSum += suma;
+
+            }
+            if (temp == false) return "В кожному стовпці немає від'ємного елемента, спробуйте згенерувати іншу матрицю";
+            else return $"Cума елементів в тих стовпцях, які  містять хоча б один від’ємний елемент; = {colSum}";
         }
 
 
