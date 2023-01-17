@@ -260,9 +260,18 @@ namespace MatrixLibrary
 
             }
             if (temp == false) return "В кожному стовпці немає від'ємного елемента, спробуйте згенерувати іншу матрицю";
-            else return $"Cума елементів в тих стовпцях, які  містять хоча б один від’ємний елемент; = {colSum}";
+            else return $"Cума елементів в тих стовпцях, які  містять хоча б один від’ємний елемент = {colSum}";
         }
 
+        public static int [,] TransposedMatrix(int[,] matrix)
+        {
+            int n = matrix.GetLength(1), m = matrix.GetLength(0);
+            int[,] temp = new int[n, m];
+            for (int j = 0; j < matrix.GetLength(1); j++)
+                for (int i = 0; i < matrix.GetLength(0); i++)
+                    temp[j,i] = matrix[i, j];
+            return temp;
+        }
 
 
     }
